@@ -1,16 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./features/counter/counterSlice";
-import logger from "./middleware/logger";
+import { configureStore } from '@reduxjs/toolkit';
+import  cartReducer  from './features/cart/cartSlice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    cart:cartReducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
