@@ -31,10 +31,10 @@ export default function ProductReview({ id }: IProps) {
 
     const options = {
       id: id,
-      data: { comment: inputValue },
+      data: { comment: inputValue }, //here data should be sent as object like "{comment:inputValue}"
     };
 
-    postComment(options);
+    postComment(options); // here we must sent data as object like given in options variable.
     setInputValue('');
   };
 
