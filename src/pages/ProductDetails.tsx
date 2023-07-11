@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import ProductReview from '@/components/ProductReview';
 import { Button } from '@/components/ui/button';
-import { useSingleProductQuery } from '@/redux/api/apiSlice';
+import { useSingleProductQuery } from '@/redux/features/products/productsApi';
 
 import { useParams } from 'react-router-dom';
 
@@ -8,18 +9,6 @@ export default function ProductDetails() {
   const { id } = useParams();
 
   const { data: product, isLoading, error } = useSingleProductQuery(id);
-
-  //! Temporary code, should be replaced with redux
-  /*  const [data, setData] = useState<IProduct[]>([]);
-  useEffect(() => {
-    fetch('../../public/data.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  const product = data?.find((item) => item._id === Number(id)); */
-
-  //! Temporary code ends here
 
   return (
     <>
@@ -38,7 +27,7 @@ export default function ProductDetails() {
           <Button>Add to cart</Button>
         </div>
       </div>
-      <ProductReview />
+      <ProductReview id={id!} />
     </>
   );
 }
