@@ -26,6 +26,7 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
   } = useForm<SignupFormInputs>();
 
   const dispatch = useAppDispatch();
+  
 
   const onSubmit = (data: SignupFormInputs) => {
     console.log(data);
